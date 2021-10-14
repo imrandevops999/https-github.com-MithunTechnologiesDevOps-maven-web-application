@@ -1,0 +1,29 @@
+node 
+{ 
+def mavenHome = tool name: "Maven_Home"
+ stage ('checkoout code')
+{ git credentialsId: 'f1bcf6b3-155b-4410-97f8-107a0c193ba1', url: 'https://github.com/imrandevops999/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
+}
+stage ('Maven Build')
+{ sh "${mavenHome}/bin/mvn clean package"
+}
+/*
+ stage ('sonarqube')
+ { sh "${mavenHome}/bin/mvn sonar:sonar"
+ }
+ stage ('nexus artifacts')
+ { sh "${mavenHome}/bin/mvn deploy"
+ }
+ stage ('tomcat deploy')
+ {sshagent(['19627e5d-9991-4b22-aece-5a1a95e31cae']) 
+{sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.15.21.132:/opt/tomcat9/webapps/maven-web-application.war"}
+    }
+stage ('Mail')
+{
+    mail bcc: '', body: '''BuildOver
+Thanks
+Jawad 
+Devops Lead''', cc: '', from: '', replyTo: '', subject: 'Build Over', to: 'jawad999@gmail.com'
+}
+*/
+}
