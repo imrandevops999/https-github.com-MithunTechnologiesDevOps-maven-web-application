@@ -7,6 +7,7 @@ def mavenHome = tool name: "Maven_Home"
 stage ('Maven Build')
 { sh "${mavenHome}/bin/mvn clean package"
 }
+
 /*
  stage ('sonarqube')
  { sh "${mavenHome}/bin/mvn sonar:sonar"
@@ -26,4 +27,6 @@ Jawad
 Devops Lead''', cc: '', from: '', replyTo: '', subject: 'Build Over', to: 'jawad999@gmail.com'
 }
 */
+stage ('job properties')
+{properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5'))])}
 }
