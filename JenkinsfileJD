@@ -1,7 +1,7 @@
 node 
 { 
 def mavenHome = tool name: "Maven_Home"
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5'))])
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5'))])
  stage ('checkoout code')
 { git credentialsId: 'f1bcf6b3-155b-4410-97f8-107a0c193ba1', url: 'https://github.com/imrandevops999/https-github.com-MithunTechnologiesDevOps-maven-web-application.git'
 }
