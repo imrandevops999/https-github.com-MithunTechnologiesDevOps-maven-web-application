@@ -1,4 +1,4 @@
-node ("node")
+node ("Node")
 { 
 def mavenHome = tool name: "Maven_Home"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), parameters([choice(choices: ['Master', 'Stage', 'uat', 'development'], name: 'Branch Name')]), pipelineTriggers([pollSCM('H * * * * ')])])
